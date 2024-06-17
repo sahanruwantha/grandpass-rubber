@@ -43,6 +43,7 @@ header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
+    z-index: 100; /* Ensure the menu is above other content */
 }
 
 header nav ul li {
@@ -65,11 +66,12 @@ header .menu-toggle {
     display: none;
     cursor: pointer;
     font-size: 1.5rem;
+    z-index: 110; /* Ensure the toggle is above other content */
 }
 
 /* Hero Section Styles */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.jpg') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -86,31 +88,11 @@ header .menu-toggle {
     animation: fadeIn 2s ease-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 .hero h1 {
     font-size: 3rem;
     margin: 0;
     color: #ffd700;
     animation: slideIn 1s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .hero p {
@@ -141,17 +123,6 @@ section {
     animation: fadeInUp 1s ease-out;
 }
 
-@keyframes fadeInUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 section h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -177,17 +148,6 @@ section h2 {
     transition: transform 0.3s, box-shadow 0.3s;
     max-width: 300px;
     animation: zoomIn 0.5s ease-out;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 .section-item:hover {
@@ -240,6 +200,8 @@ footer {
 
     header .menu-toggle {
         display: block;
+        position: relative; /* Ensure it respects stacking context */
+        z-index: 120; /* Ensure it's above other content */
     }
 
     header nav ul.open {
