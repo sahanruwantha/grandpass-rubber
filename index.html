@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubber Products Company</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Rubber Products Co.</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            </nav>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>High-Quality Rubber Products for Every Need</h1>
+            <p>Durable. Reliable. Affordable.</p>
+            <a href="products.html" class="btn">Browse Products</a>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <h2>Welcome to Rubber Products Co.</h2>
+            <p>We provide the best rubber products to meet all your needs.</p>
+            <div class="section-content">
+                <div class="section-item">
+                    <img src="valve.jpg" alt="Rubber Valve">
+                    <h3>Rubber Valves</h3>
+                    <p>Durable and reliable rubber valves for various applications.</p>
+                </div>
+                <div class="section-item">
+                    <img src="hose.jpg" alt="Rubber Hose">
+                    <h3>Rubber Hoses</h3>
+                    <p>High-quality rubber hoses for industrial and commercial use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Rubber Products Co. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('header nav ul');
+            nav.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
