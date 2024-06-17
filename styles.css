@@ -24,7 +24,9 @@ header {
     background: linear-gradient(90deg, #ff6f61, #ffca28);
     color: #fff;
     padding: 1rem 0;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header .container {
@@ -43,7 +45,6 @@ header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    z-index: 100; /* Ensure the menu is above other content */
 }
 
 header nav ul li {
@@ -62,16 +63,9 @@ header nav ul li a:hover {
     color: #ff6f61;
 }
 
-header .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    z-index: 110; /* Ensure the toggle is above other content */
-}
-
 /* Hero Section Styles */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.webp') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -133,21 +127,22 @@ section h2 {
 
 .section-content {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .section-item {
-    flex: 1;
-    margin: 1rem;
+    flex: 1 1 300px; /* Flex basis of 300px, flexible to grow */
+    margin: 1.5rem;
     padding: 1.5rem;
     background: #fff;
     border-radius: 10px;
-    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    max-width: 300px;
-    animation: zoomIn 0.5s ease-out;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .section-item:hover {
@@ -162,8 +157,20 @@ section h2 {
     transition: transform 0.3s;
 }
 
-.section-item img:hover {
+.section-item:hover img {
     transform: scale(1.05);
+}
+
+.section-item h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #333;
+}
+
+.section-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
 }
 
 /* Footer Styles */
@@ -175,48 +182,24 @@ footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-    header nav ul {
-        display: none;
-        flex-direction: column;
-        background: linear-gradient(90deg, #ff6f61, #ffca28);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 0;
-    }
-
-    header nav ul li {
-        margin: 0;
-        text-align: center;
-    }
-
-    header nav ul li a {
-        padding: 1rem;
-        display: block;
-        border-bottom: 1px solid #fff;
-    }
-
-    header .menu-toggle {
-        display: block;
-        position: relative; /* Ensure it respects stacking context */
-        z-index: 120; /* Ensure it's above other content */
-    }
-
-    header nav ul.open {
-        display: flex;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .section-content {
-        flex-direction: column;
-    }
-
+@media (max-width: 1200px) {
     .section-item {
-        margin: 0.5rem 0;
+        flex-basis: calc(50% - 3rem); /* Two items per row, minus margins */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust container width for smaller screens */
+    }
+    
+    .section-item {
+        flex-basis: calc(50% - 3rem); /* Two items per row, minus margins */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-item {
+        flex-basis: calc(100% - 3rem); /* Full width, minus margins */
     }
 }

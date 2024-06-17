@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<style>
+    /* Additional styles for the hamburger menu icon */
+    .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 110; /* Ensure it's above other content */
+    }
+
+    @media (max-width: 768px) {
+        header nav ul {
+            display: none;
+            flex-direction: column;
+            background: linear-gradient(90deg, #ff6f61, #ffca28);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 0;
+        }
+
+        header nav ul.open {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            position: relative; /* Ensure it respects stacking context */
+            z-index: 120; /* Ensure it's above other content */
+        }
+    }
+</style>
 <body>
     <header>
         <div class="container">
@@ -35,12 +67,12 @@
             <h2>Welcome to Rubber Products Co.</h2>
             <div class="section-content">
                 <div class="section-item">
-                    <img src="valve.jpg" alt="Rubber Valve">
+                    <img src="valves.jpg" alt="Rubber Valve">
                     <h3>Rubber Valves</h3>
                     <p>Durable and reliable rubber valves for various applications.</p>
                 </div>
                 <div class="section-item">
-                    <img src="hose.jpg" alt="Rubber Hose">
+                    <img src="hose.jpgy" alt="Rubber Hose">
                     <h3>Rubber Hoses</h3>
                     <p>High-quality rubber hoses for industrial and commercial use.</p>
                 </div>
