@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-    /* Additional styles for the hamburger menu icon */
-    .menu-toggle {
-        display: none;
-        cursor: pointer;
-        font-size: 1.5rem;
-        z-index: 110; /* Ensure it's above other content */
-    }
 
     @media (max-width: 768px) {
         header nav ul {
@@ -25,18 +18,33 @@
             left: 0;
             width: 100%;
             padding: 0;
+            z-index: 100; /* Ensure menu is above header background */
         }
-
+    
         header nav ul.open {
             display: flex;
         }
-
-        .menu-toggle {
+    
+        header nav ul li {
+            margin: 0; /* Remove margin to avoid extra space */
+            width: 100%; /* Full width for each menu item */
+            text-align: center; /* Center align text */
+        }
+    
+        header nav ul li a {
             display: block;
-            position: relative; /* Ensure it respects stacking context */
-            z-index: 120; /* Ensure it's above other content */
+            padding: 1.5rem 0; /* Vertical padding for each menu item */
+            color: #fff; /* Text color */
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+    
+        header nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Background color on hover */
+            color: #ff6f61; /* Text color on hover */
         }
     }
+    
 </style>
 <body>
     <header>
@@ -50,6 +58,7 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             </nav>
         </div>
     </header>
@@ -77,5 +86,11 @@
     <footer>
         <p>&copy; 2024 Rubber Products Co. All rights reserved.</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('header nav ul');
+            nav.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
